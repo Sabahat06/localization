@@ -59,9 +59,12 @@ class Home extends StatelessWidget {
                 child: const Padding(
                   padding: EdgeInsets.all(10),
                   child: Text(
-                    'Check Text',
+                    'Check Text Alignment',
                     textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 35),
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.white
+                    ),
                   ),
                 ),
               ),
