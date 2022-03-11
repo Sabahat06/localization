@@ -7,9 +7,22 @@ class SecondPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Localization"),),
-      body: Center(
-        child: Text('bodyOfScreen'.tr()),
+      appBar: AppBar(title: Text("Localization".tr()),),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          // const SizedBox(width: double.infinity,),
+          Container(width: double.infinity, child: Text('bodyOfScreen'.tr())),
+          Container(width: double.infinity, child: Text('bodyOfScreen'.tr())),
+          Container(width: double.infinity, child: Text('bodyOfScreen'.tr())),
+          Container(width: double.infinity, child: Text('bodyOfScreen'.tr())),
+          Container(width: double.infinity, child: Text('bodyOfScreen'.tr())),
+          Container(width: double.infinity, child: Text('bodyOfScreen'.tr())),
+          Container(width: double.infinity, child: Text('bodyOfScreen'.tr())),
+          Container(width: double.infinity, child: Text('bodyOfScreen'.tr())),
+          Container(width: double.infinity, child: Text('bodyOfScreen'.tr())),
+          Container(width: double.infinity, child: Text('bodyOfScreen'.tr())),
+        ],
       ),
     );
   }

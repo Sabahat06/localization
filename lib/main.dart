@@ -8,7 +8,7 @@ main() async {
 
   await translator.init(
     localeType: LocalizationDefaultType.device,
-    languagesList: <String>['ar', 'en'],
+    languagesList: <String>['en', 'ar'],
     assetsDirectory: 'assets/lang/',
   );
 
@@ -54,27 +54,40 @@ class Home extends StatelessWidget {
             ),
             GestureDetector(
               onTap: () {Navigator.of(context).push(MaterialPageRoute(builder: (context) => SecondPage()));},
-              child: const Text(
-                'textArea',
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 35),
+              child: Container(
+                color: Colors.green,
+                child: const Padding(
+                  padding: EdgeInsets.all(10),
+                  child: Text(
+                    'Check Text',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontSize: 35),
+                  ),
+                ),
               ),
             ),
-            Wrap(
-              children: translator.locals().map((i) {
-                return OutlinedButton(
-                  onPressed: () {
-                    print(i.languageCode);
-                    translator.setNewLanguage(
-                      context,
-                      newLanguage: i.languageCode,
-                      remember: true,
-                      restart: true,
-                    );
-                  },
-                  child: Text(i.languageCode),
-                );
-              }).toList(),
+            Column(
+              children: [
+                ...translator.locals().map((i) {
+                  return Column(
+                    children: [
+                      GestureDetector(
+                        onTap: (){
+                          print(i.languageCode);
+                          translator.setNewLanguage(
+                            context,
+                            newLanguage: i.languageCode,
+                            remember: true,
+                            restart: true,
+                          );
+                        },
+                        child: Text(i.languageCode == "ar" ? "Arabic" : "English", style: const TextStyle(color: Colors.black, fontSize: 20),),
+                      ),
+                      const SizedBox(height: 10,),
+                    ],
+                  );
+                }).toList(),
+              ],
             ),
           ],
         ),
